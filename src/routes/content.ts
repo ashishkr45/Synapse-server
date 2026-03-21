@@ -33,10 +33,12 @@ contentRouter.post("/board", auth, async (req: Request, res: Response) => {
 
     const { type, link, title, tags, note } = parsedData.data;
 
-    const exists = await Content.findOne({ link, userId: req.userId });
-    if (exists) {
-      res.status(409).json({ message: "Content already exists." });
-      return;
+    if (link) {
+      const exists = await Content.findOne({ link, userId: req.userId });
+      if (exists) {
+        res.status(409).json({ message: "Content already exists." });
+        return;
+      }
     }
 
     const tagIds = await Promise.all(
