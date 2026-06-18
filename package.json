@@ -5,7 +5,7 @@
   "scripts": {
     "backend": "npm run build && npm run start",
     "build": "tsc -b tsconfig.json",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "watch": "tsc -b backend/tsconfig.json --watch"
   },
   "keywords": [],
@@ -14,12 +14,12 @@
   "type": "commonjs",
   "description": "",
   "dependencies": {
-    "@tanstack/react-query": "^5.84.1",
-    "bcrypt": "^5.1.1",
+    "bcrypt": "^6.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "googleapis": "^154.1.0",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.13.1",
     "nanoid": "^5.1.5",
@@ -31,6 +31,8 @@
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.1",
     "@types/jsonwebtoken": "^9.0.9",
-    "@types/mongoose": "^5.11.96"
+    "@types/mongoose": "^5.11.96",
+    "globals": "^17.4.0",
+    "nodemon": "^3.1.14"
   }
 }
