@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from "express";
+import { jwtSecret } from "../config";
 import jwt from "jsonwebtoken";
 
 declare module "express-serve-static-core" {
@@ -16,7 +17,7 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
         }
 
         const token = authHeader.split(" ")[1];
-        const decoded = jwt.verify(token, process.env.JWT_SECRET as string) as { id: string };
+        const decoded = jwt.verify(token, jwtSecret as string) as { id: string };
 
         req.userId = decoded.id;
 
