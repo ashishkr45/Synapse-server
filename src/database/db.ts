@@ -3,8 +3,7 @@ import { mongoUrl } from "../config";
 
 async function connectDB() {
 	try {
-		const connectionInstance = await mongoose.connect(`${mongoUrl}`)
-		console.log(`MongoDB Connected! \n DB Host: ${connectionInstance.connection.host}`);
+		await mongoose.connect(`${mongoUrl}`)
 	} catch (error) {
 		console.error(`[MONGOOSE_CONNECTION_FAILED]: ${error}`);
 		process.exit(1);
